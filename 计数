@@ -1,5 +1,5 @@
 """
-随机生成N个数, 范围 0~100 inclusive
+随机生成N个数, 范围 0~100 inclusive (use function random.randint)
 返回每个数出现的次数, 格式如下：
 1：2 次
 2: 2 次
