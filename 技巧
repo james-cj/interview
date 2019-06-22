@@ -1,0 +1,46 @@
+'''
+循环效率:代码尽量外提
+'''
+
+import time
+digits = [1,2,3,4,5,6]                                                  #原始长度4，长度越长，越明显
+
+start = time.time()
+for i in range(1000):
+        result = []
+        for i in digits:
+                for j in digits:
+                        for k in digits:
+                                result.append(i*100 + j*10 + k)         #乘了64次，加了64次
+print(time.time() - start)
+print(result)
+        
+start = time.time()
+for i in range(1000):
+        result = []
+        for i in digits:
+                i = i*100                                               #乘了4次            
+                for j in digits:
+                        j = j*10                                        #乘了16次
+                        for k in digits:
+                                result.append(i + j + k)        #加了64次
+print(time.time() - start)
+print(result)
+
+
+#########################################################
+'''
+循环效率:尽量使用局部变量(3.7版本无显著差异，优化为内联函数？)
+'''
+from math import sin as sin
+
+start  = time.time()
+for i in range(100000):
+        sin(i)
+print('Time used: ',time.time() - start)
+
+loc_sin = sin
+start = time.time()
+for i in range(100000):
+        loc_sin(i)
+print('Time used: ',time.time() - start)
