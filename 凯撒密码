@@ -1,0 +1,22 @@
+凯撒密码是古罗马的凯撒大帝用来对军事情报进行加密的方法，
+它采用了替换方法对信息中的每一个英文字符替换为在字母表序列中该字符后面第三个字符，
+对应关系如下：
+
+原文：ab c d e f g h i j k l m n o p q r s t u v w x y z
+密文： de f g h i j k l m n o p q r s t u v w x y z a b c
+
+原文字符P,其密文字符C满足如下条件：
+C=（P+3）mod26
+解密方法反之，满足：
+P=（C-3）mod26
+编写加密算法，对明文
+
+it was the best of times,it was the worst of times, it was the age of wisdom, 
+it was the age offoolishness, it was the epoch of belief, it was the epoch of incredulity
+
+进行加密。
+
+1)    练习目标
+    掌握字符串的基本操作
+2)    思路提示
+使用ord()函数或maketrans()函数和translate()函数
